@@ -12,7 +12,8 @@ public class Namespaces {
 
     private Namespaces() {
     }
-
+    public static final String SWE="http://www.opengis.net/swe/2.0";
+    
     /** SOAP 1.2 message envelopes. */
     public static final String SOAP_ENV = "http://www.w3.org/2003/05/soap-envelope";
     /** W3C XLink */

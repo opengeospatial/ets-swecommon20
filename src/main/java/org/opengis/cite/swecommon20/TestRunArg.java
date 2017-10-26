@@ -5,11 +5,16 @@ package org.opengis.cite.swecommon20;
  */
 public enum TestRunArg {
 
+	
     /**
      * An absolute URI that refers to a representation of the test subject or
      * metadata about it.
      */
-    IUT;
+	GML,
+	SCH,
+    IUT,
+    XML,
+	XSD;
 
     @Override
     public String toString() {
