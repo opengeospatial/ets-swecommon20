@@ -91,9 +91,20 @@ public class NamespaceBindings implements NamespaceContext {
      */
     public static NamespaceBindings withStandardBindings() {
         NamespaceBindings nsBindings = new NamespaceBindings();
-        nsBindings.addNamespaceBinding(Namespaces.OWS, "ows");
-        nsBindings.addNamespaceBinding(Namespaces.XLINK, "xlink");
-        nsBindings.addNamespaceBinding(Namespaces.GML, "gml");
+        nsBindings.addAllBindings(getStandardBindings());        
+        return nsBindings;
+    }
+    
+    public static Map<String, String> getStandardBindings() {
+    	Map<String, String> nsBindings = new HashMap<String, String>();    	
+        nsBindings.put(Namespaces.OWS, "ows");
+        nsBindings.put(Namespaces.XLINK, "xlink");
+        nsBindings.put(Namespaces.GML, "gml");
+        //nsBindings.put(Namespaces.OM, "om");
+        nsBindings.put(Namespaces.SWE, "swe");
+//        nsBindings.put(Namespaces.SAMS, "sams");
+//        nsBindings.put(Namespaces.SAM, "sam");
+//        nsBindings.put(Namespaces.SPEC, "spec");
         return nsBindings;
     }
 

@@ -11,6 +11,7 @@ import java.util.Set;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
+import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.Validator;
@@ -19,6 +20,8 @@ import org.apache.xerces.xs.XSModel;
 import org.opengis.cite.swecommon20.SuiteAttribute;
 import org.opengis.cite.validation.XmlSchemaCompiler;
 import org.opengis.cite.swecommon20.util.ValidationUtils;
+import org.opengis.cite.swecommon20.util.NamespaceBindings;
+import org.opengis.cite.swecommon20.util.XMLUtils;
 //import org.opengis.cite.iso19136.general.GML32;
 import org.opengis.cite.swecommon20.Namespaces;
 import org.testng.Assert;
@@ -26,6 +29,9 @@ import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
+
+import net.sf.saxon.s9api.SaxonApiException;
+import net.sf.saxon.s9api.XdmValue;
 
 /**
  * A supporting base class that provides a common fixture for validating data
@@ -51,6 +57,7 @@ public class DataFixture {
 
     public DataFixture() {
     }
+    
     public Validator CreateValidator(URL xsdPath) throws XMLStreamException, SAXException, IOException {
 		Schema schema;
 		Set<URI> schemaRefs;
@@ -59,6 +66,24 @@ public class DataFixture {
 		XmlSchemaCompiler xsdCompiler = new XmlSchemaCompiler(xsdPath);
 		schema = xsdCompiler.compileXmlSchema(schemaRefs.toArray(new URI[schemaRefs.size()]));
 		return schema.newValidator();
+	}
+    
+    /**
+	 * Check XPath2.0
+	 * 
+	 * @param xpath
+	 *            String denoting an xpath syntax
+	 * @return XdmValue converted to string
+	 */
+	public String CheckXPath2(String xpath) {
+		XdmValue xdmValue = null;
+		try {
+			xdmValue = XMLUtils.evaluateXPath2(new DOMSource(this.testSubject), xpath,
+					NamespaceBindings.getStandardBindings());
+		} catch (SaxonApiException e) {
+			e.printStackTrace();
+		}
+		return xdmValue.toString();
 	}
     
     @BeforeClass(alwaysRun = true)

@@ -17,6 +17,7 @@ import org.opengis.cite.swecommon20.util.URIUtils;
 import org.opengis.cite.swecommon20.util.ValidationUtils;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
+import org.testng.Reporter;
 import org.w3c.dom.Document;
 
 /**
@@ -36,11 +37,16 @@ public class SuiteFixtureListener implements ISuiteListener {
 
     @Override
     public void onStart(ISuite suite) {
-        processSuiteParameters(suite);
+    	processIUTParameter(suite);
+		processXmlReference(suite);
+		processSchematronSchema(suite);
     }
 
     @Override
     public void onFinish(ISuite suite) {
+    	Reporter.clear(); // clear output from previous test runs
+		Reporter.log("Test suite parameters:");
+		Reporter.log(suite.getXmlSuite().getAllParameters().toString());
     }
 
     /**
