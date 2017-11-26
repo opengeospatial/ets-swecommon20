@@ -29,10 +29,18 @@ public class CoreConcept extends DataFixture{
 //		}
 	}
 	
-	@Test(groups = "CoreConcepts", description="A.1 Validate all conformance classes in core concepts by using schematron file.", dependsOnGroups  = { "CoreConceptsBase" })
+	@Test(groups = "CoreConcepts", dependsOnGroups  = { "CoreConceptsBase" }, description="A.1 Validate all conformance classes in core concepts by using schematron file.")
 	public void checkCoreConceptsSchematron() {
 		URL schRef = this.getClass().getResource(
 				"/org/opengis/cite/swecommon20/sch/A.1.CoreConcepts.sch");
+		ETSAssert
+				.assertSchematronValid(schRef, new StreamSource(this.dataFile));
+	}
+	
+	@Test(groups = "SimpleComponents", dependsOnGroups  = { "CoreConcepts" }, description="A.2 test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Basic Types and Simple Components Packages..")
+	public void checkSimpleComponentsSchematron() {
+		URL schRef = this.getClass().getResource(
+				"/org/opengis/cite/swecommon20/sch/A.2.BasicType_SimpleComponent.sch");
 		ETSAssert
 				.assertSchematronValid(schRef, new StreamSource(this.dataFile));
 	}

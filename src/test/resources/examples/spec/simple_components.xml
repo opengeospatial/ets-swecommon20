@@ -25,7 +25,8 @@
 	<!-- -->
 	<swe:field name="category_field">
 		<swe:Category definition="http://sweet.jpl.nasa.gov/2.0/timeGeologic.owl#GeologicTime">
-		  <swe:label>Geological Period</swe:label>		  
+			<swe:identifier>http://sweet.jpl.nasa.gov/2.0/timeGeologic.owl#GeologicalPeriod</swe:identifier>
+			<swe:label>Geological Period</swe:label>		  
 		  <swe:description>Name of the geological period according to the nomenclature of the International Commission on Stratigraphy</swe:description>
 			<swe:codeSpace xlink:href="http://sweet.jpl.nasa.gov/2.0/timeGeologic.owl#Period"/>
 			<swe:value>Jurassic</swe:value>
@@ -34,6 +35,7 @@
 	<!-- -->
 	<swe:field name="category_field_no_value">
 		<swe:Category definition="http://sweet.jpl.nasa.gov/2.0/biol.owl#Species">
+			<swe:identifier>http://sweet.jpl.nasa.gov/2.0/biol.owl#BirdSpecies</swe:identifier>
 		  <swe:label>Bird Species</swe:label>
 		  <swe:description>Bird species according to the classification of the World Bird Database (WBDB)</swe:description>
 			<swe:codeSpace xlink:href="http://www.birdlife.org/datazone/species/index.html"/>
@@ -42,7 +44,8 @@
 	<!-- -->
 	<swe:field name="category_field_no_codespace">
 		<swe:Category definition="http://www.opengis.net/def/property/OGC/0/SensorStatus">
-		  <swe:label>Sensor Status</swe:label>		  
+			<swe:identifier>http://www.opengis.net/def/property/OGC/0/SensorStatus</swe:identifier>
+			<swe:label>Sensor Status</swe:label>		  
 		  <swe:description>Current status of the sensor</swe:description>
 			<swe:constraint>
 				<swe:AllowedTokens>
@@ -83,7 +86,7 @@
 	</swe:field>
 	<!-- -->
 	<swe:field name="quantity_field_with_axis">
-		<swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceExtent.owl#Height" axisID="H" referenceFrame="http://www.opengis.net/def/crs/EPSG/0/5714">
+		<swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceExtent.owl#Height-location" axisID="H" referenceFrame="http://www.opengis.net/def/crs/EPSG/0/5714">
 		  <swe:label>MSL Height</swe:label>  
 		  <swe:description>Height above mean sea level</swe:description>
 			<swe:uom code="m"/>
