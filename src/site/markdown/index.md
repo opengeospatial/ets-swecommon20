@@ -4,6 +4,7 @@ This test suite is based on the following OGC specification:
   
 ## What is tested 
 Comformance Class Section | No. of Req | Content of Requirement | Available in testsuite | Keyword
+|---|---|---|---|---|
 A.1 | 1 | A derived model or software implementation shall correctly implement the concepts defined in the core of this standard. | OK | 
 A.1 | 2 | A boolean representation shall at least consist of a boolean value | OK | Boolean representation
 A.1 | 3 | A categorical representation shall at least consist of a category identifier and information describing the value space of this identifier. | OK | Categorical representation
