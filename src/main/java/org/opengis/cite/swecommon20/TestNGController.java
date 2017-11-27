@@ -126,7 +126,7 @@ public class TestNGController implements TestSuiteController {
      * @param testRunArgs
      *            A DOM Document containing a set of XML properties (key-value
      *            pairs).
-     * @throws IllegalArgumentException
+     * @throws Exception
      *             If any arguments are missing or invalid for some reason.
      */
     void validateTestRunArgs(Document testRunArgs) throws Exception {
