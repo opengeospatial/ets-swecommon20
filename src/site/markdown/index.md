@@ -43,10 +43,10 @@ A.2 | 35 | The value used in the “value” property of an instance of the “N
 A.2 | 36 | The scale of the numbers used in the “enumeration” and “interval” properties of an instance of the “AllowedValues” class shall be expressed in the same scale as the value(s) that the constraint applies to. | Abstract problem | allowed-values-unit-coherent
  
 ## What is not tested 
-None
+Please reference the availability column in the previous table.
  
 ## The test data 
-* [Samples](https://github.com/opengeospatial/ets-swecommon20/tree/master/src/test/resources) 
+* [Samples](https://github.com/opengeospatial/ets-swecommon20/tree/master/src/test/resources/examples) 
  
  ## Release Notes  
 Release notes are available [here.](relnotes.html) 
