@@ -45,7 +45,7 @@
 
   <properties>
     <ets-code>swecommon20</ets-code>
-    <spec-version>1.0</spec-version>
+    <spec-version>2.0</spec-version>
   </properties>
 
   <dependencies>
