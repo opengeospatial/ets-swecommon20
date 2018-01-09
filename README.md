@@ -1,4 +1,4 @@
-## WFS 2.0 Conformance Test Suite
+## SWECommon 2.0 Conformance Test Suite
 
 ### Scope
 
