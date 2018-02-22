@@ -37,11 +37,27 @@ public class CoreConcept extends DataFixture{
 				.assertSchematronValid(schRef, new StreamSource(this.dataFile));
 	}
 	
-	@Test(groups = "SimpleComponents", dependsOnGroups  = { "CoreConcepts" }, description="A.2 test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Basic Types and Simple Components Packages..")
-	public void checkSimpleComponentsSchematron() {
-		URL schRef = this.getClass().getResource(
-				"/org/opengis/cite/swecommon20/sch/A.2.BasicType_SimpleComponent.sch");
-		ETSAssert
-				.assertSchematronValid(schRef, new StreamSource(this.dataFile));
-	}
+//	@Test(groups = "SimpleComponents", dependsOnGroups  = { "CoreConcepts" }, description="A.2 test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Basic Types and Simple Components Packages..")
+//	public void checkSimpleComponentsSchematron() {
+//		URL schRef = this.getClass().getResource(
+//				"/org/opengis/cite/swecommon20/sch/A.2.BasicType_SimpleComponent.sch");
+//		ETSAssert
+//				.assertSchematronValid(schRef, new StreamSource(this.dataFile));
+//	}
+	
+//	@Test(groups = "RecordComponents", dependsOnGroups  = { "SimpleComponents" }, description="A.3 classes modeling record style component types that can be nested to build complex structures from the simple component types")
+//	public void checkRecordComponentsSchematron() {
+//		URL schRef = this.getClass().getResource(
+//				"/org/opengis/cite/swecommon20/sch/A.3.RecordComponents.sch");
+//		ETSAssert
+//				.assertSchematronValid(schRef, new StreamSource(this.dataFile));
+//	}
+//	
+//	@Test(groups = "ChoiceComponents", dependsOnGroups  = { "SimpleComponents" }, description="A.3 classes modeling record style component types that can be nested to build complex structures from the simple component types")
+//	public void checkChoiceComponentsSchematron() {
+//		URL schRef = this.getClass().getResource(
+//				"/org/opengis/cite/swecommon20/sch/A.3.RecordComponents.sch");
+//		ETSAssert
+//				.assertSchematronValid(schRef, new StreamSource(this.dataFile));
+//	}
 }

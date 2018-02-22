@@ -29,7 +29,7 @@
         <rule context=" //swe:DataChoice/swe:item ">
             <report
                 test=" @name = preceding-sibling::swe:item/@name ">
-                Each DataChoice item has a unique name.
+                Each DataChoice item shall have a unique name.
             </report>
         </rule>
     </pattern>
