@@ -14,7 +14,10 @@
         <title>SWE Common Data Model Encoding Standard</title>
         <description>Describe scope of testing.</description>
         <BasicConformanceClasses>
-		  <conformanceClass>org.opengis.cite.swecommon20.level1.CoreConcept</conformanceClass>
+		  <conformanceClass>Core</conformanceClass>
+		  <conformanceClass>SimpleComponents</conformanceClass>
+		  <conformanceClass>RecordComponents</conformanceClass>
+		  <conformanceClass>Choiceomponents</conformanceClass>
 		</BasicConformanceClasses>
       </suite>
       <revision>
