@@ -15,21 +15,36 @@
     </packages>  --> 
     <classes>
       <class name="org.opengis.cite.swecommon20.level1.CoreConcept" />
-    </classes>   
+    </classes>
   </test>
-  <test name="SimpleComponents">    
+  <test name="SimpleComponents">
+    <groups>
+      <run>
+        <include name="CoreConcepts"/>
+      </run>
+    </groups>
     <classes>
       <class name="org.opengis.cite.swecommon20.level1.SimpleComponents" />
-    </classes>   
+    </classes>
   </test>
-  <test name="RecordComponents">    
+  <test name="RecordComponents">
+    <groups>
+      <run>
+        <include name="SimpleComponents"/>
+      </run>
+    </groups>
     <classes>
       <class name="org.opengis.cite.swecommon20.level1.RecordComponents" />
-    </classes>   
+    </classes>
   </test>
-  <test name="Choiceomponents">    
+  <test name="ChoiceComponents">
+    <groups>
+      <run>
+        <include name="SimpleComponents"/>
+      </run>
+    </groups>
     <classes>
-      <class name="org.opengis.cite.swecommon20.level1.Choiceomponents" />
-    </classes>   
+      <class name="org.opengis.cite.swecommon20.level1.ChoiceComponents" />
+    </classes>
   </test>
 </suite>
