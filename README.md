@@ -41,13 +41,14 @@ Execute the build artifact under the target folder:
 #### 3. OGC test harness
 
 Use [TEAM Engine](https://github.com/opengeospatial/teamengine), the official OGC test harness.
-### Files Tested
-  * [Samples](https://github.com/opengeospatial/ets-swecommon20/tree/master/src/test/resources/examples) 
 
 #### 4. Docker
 
 This test suite comes with a Dockerfile which can be used to easily setup the OGC test harness with
 the test suite. Details can be found on [Create Docker Image and create and start Docker Container](https://github.com/opengeospatial/cite/wiki/How-to-create-Docker-Images-of-test-suites#create-docker-image-and-create-and-start-docker-container).
+
+### Files Tested
+  * [Samples](https://github.com/opengeospatial/ets-swecommon20/tree/master/src/test/resources/examples) 
 
 ### How to contribute
 
