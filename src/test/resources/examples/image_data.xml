@@ -58,7 +58,7 @@
             <swe:Component ref="imageData/row/pixel/red" dataType="http://www.opengis.net/def/dataType/OGC/0/unsignedByte"/>
          </swe:member>
          <swe:member>
-            <swe:Component ref="imageData/row/pixel/green" dataType="uhttp://www.opengis.net/def/dataType/OGC/0/unsignedByte"/>
+            <swe:Component ref="imageData/row/pixel/green" dataType="http://www.opengis.net/def/dataType/OGC/0/unsignedByte"/>
          </swe:member>
          <swe:member>
             <swe:Component ref="imageData/row/pixel/blue" dataType="http://www.opengis.net/def/dataType/OGC/0/unsignedByte"/>

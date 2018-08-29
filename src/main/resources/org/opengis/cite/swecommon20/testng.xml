@@ -10,12 +10,12 @@
   </listeners>
 
   <test name="Core">
-    <!-- <packages>
+    <packages>
       <package name="org.opengis.cite.swecommon20.level1" />
-    </packages>  --> 
-    <classes>
+    </packages>  
+    <!-- <classes>
       <class name="org.opengis.cite.swecommon20.level1.CoreConcept" />
-    </classes>
+    </classes> -->
   </test>
   <test name="SimpleComponents">
     <groups>
