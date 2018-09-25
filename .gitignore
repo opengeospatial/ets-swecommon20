@@ -1,2 +1,12 @@
-/target/
+# Eclipse config
+.project
+.classpath
+.settings/
+
+# Maven output
+target/
+test-output/
+pom.xml.releaseBackup
+release.properties
+
 .DS_Store
