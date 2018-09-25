@@ -47,4 +47,44 @@
       <class name="org.opengis.cite.swecommon20.level1.ChoiceComponents" />
     </classes>
   </test>
+  <test name="BlockComponents">
+    <groups>
+      <run>
+        <include name="SimpleComponents"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="org.opengis.cite.swecommon20.level1.BlockComponents" />
+    </classes>
+  </test>
+  <test name="SimpleEncodings">
+    <groups>
+      <run>
+        <include name="SimpleComponents"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="org.opengis.cite.swecommon20.level1.SimpleEncodings" />
+    </classes>
+  </test>
+  <test name="AdvancedEncodings">
+    <groups>
+      <run>
+        <include name="SimpleComponents"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="org.opengis.cite.swecommon20.level1.AdvancedEncodings" />
+    </classes>
+  </test>
+  <test name="GeneralEncodingRules">
+    <groups>
+      <run>
+        <include name="SimpleComponents"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="org.opengis.cite.swecommon20.level1.GeneralEncodingRules" />
+    </classes>
+  </test>
 </suite>

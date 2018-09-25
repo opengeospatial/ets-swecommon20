@@ -15,16 +15,13 @@
         <description>Describe scope of testing.</description>
         <BasicConformanceClasses>
 		  <conformanceClass>Core</conformanceClass>
-		  <conformanceClass>Simple Components</conformanceClass>
-		  <conformanceClass>Record Components</conformanceClass>
-		  <conformanceClass>Choice Components</conformanceClass>
-		  <conformanceClass>Block Components</conformanceClass>
-		  <conformanceClass>Simple Encodings</conformanceClass>
-		  <conformanceClass>Advanced Encodings</conformanceClass>		  
-		  <conformanceClass>General Encoding Rules</conformanceClass>
-		  <conformanceClass>Text Encoding Rules</conformanceClass>
-		  <conformanceClass>XML Encoding Rules</conformanceClass>
-		  <conformanceClass>Binary Encoding Rules</conformanceClass>
+		  <conformanceClass>SimpleComponents</conformanceClass>
+		  <conformanceClass>RecordComponents</conformanceClass>
+		  <conformanceClass>ChoiceComponents</conformanceClass>
+		  <conformanceClass>BlockComponents</conformanceClass>
+		  <conformanceClass>SimpleEncodings</conformanceClass>
+		  <conformanceClass>AdvancedEncodings</conformanceClass>		  
+		  <conformanceClass>GeneralEncodingRules</conformanceClass>
 		</BasicConformanceClasses>
       </suite>
       <revision>
