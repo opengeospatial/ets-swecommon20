@@ -29,6 +29,12 @@ Please reference the availability column in the previous table that marked as no
 ## The test data 
 * [Samples](https://github.com/opengeospatial/ets-swecommon20/tree/master/src/test/resources/examples) 
 * Reference implementations
-  - [SOS Service from 52North](http://sensorweb.demo.52north.org/52n-sos-webapp/service?request=GetResultTemplate&service=SOS&version=2.0.0&offering=http%3A%2F%2Fwww.52north.org%2Ftest%2Foffering%2F6&observedProperty=http%3A%2F%2Fwww.52north.org%2Ftest%2FobservableProperty%2F6)
+  * SOS Service from 52North
+    * http://sensorweb.demo.52north.org/52n-sos-webapp/service    
+      * request=GetResultTemplate
+      * service=SOS
+      * version=2.0.0
+      * offering=ttp://www.52north.org/test/offering/6
+      * observedProperty=http://www.52north.org/test/observableProperty/6
  ## Release Notes  
 Release notes are available [here.](relnotes.html) 
