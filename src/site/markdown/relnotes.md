@@ -3,6 +3,7 @@
 ## 0.4
 
 * Updates for conformance class A.5 to A.17
+* [#5](https://github.com/opengeospatial/ets-swecommon20/issues/5) Allow execution of the ETS via WebGUI and REST interface
 
 ## 0.3
 
