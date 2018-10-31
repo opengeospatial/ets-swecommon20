@@ -20,4 +20,5 @@ public class BlockComponents extends DataFixture{
 		ETSAssert
 				.assertSchematronValid(schRef, new StreamSource(this.dataFile));
 	}
+	
 }

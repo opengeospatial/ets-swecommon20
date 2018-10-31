@@ -91,7 +91,7 @@
         <title>Req 9 - Temporal frame defined</title>
         <rule context="//swe:Time">
             <assert
-                test=" @referenceTime castable as xs:dateTime or @referenceFrame castable as xs:anyURI" >
+                test=" (count(@referenceTime) = 0 and count(@referenceFrame) = 0) or @referenceTime castable as xs:dateTime or @referenceFrame castable as xs:anyURI" >
                 A temporal quantity shall be expressed with respect to a well defined
                 temporal reference frame and this frame shall be specified.
             </assert>
@@ -102,14 +102,14 @@
         <title>Req 10 - Spatail frame defined</title>
         <rule context="//swe:Vector">
             <assert
-                test=" @referenceFrame castable as xs:anyURI" >
+                test=" (count(@referenceFrame) = 0) or @referenceFrame castable as xs:anyURI" >
                 A spatial quantity shall be expressed with respect to the axes of a well
                 defined spatial reference frame and this frame shall be specified.
             </assert>
         </rule>
         <rule context="/swe:Matrix">
             <assert
-                test=" @referenceFrame castable as xs:anyURI" >
+                test=" (count(@referenceFrame) = 0) or @referenceFrame castable as xs:anyURI" >
                 A spatial quantity shall be expressed with respect to the axes of a well
                 defined spatial reference frame and this frame shall be specified.
             </assert>
