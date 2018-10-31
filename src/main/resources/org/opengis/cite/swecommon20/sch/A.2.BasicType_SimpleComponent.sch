@@ -18,6 +18,9 @@
         prefix="swe"
         uri="http://www.opengis.net/swe/2.0"/>
     <ns
+        prefix="sos"
+        uri="http://www.opengis.net/sos/2.0"/>
+    <ns
         prefix="xsi"
         uri="http://www.w3.org/2001/XMLSchema-instance"/>
     <ns
@@ -68,13 +71,13 @@
                 The reference frame is specified on scalar spatial properties.
             </assert>
         </rule>-->
-        <rule context="//swe:Quantity[not(ancestor::swe:elementType) and (contains(lower-case(@definition), 'gml') or contains(lower-case(@definition), 'location')) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
-                        | //swe:Time[not(ancestor::swe:elementType) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
-                        | //swe:Category[not(ancestor::swe:elementType) and (contains(lower-case(@definition), 'gml') or contains(lower-case(@definition), 'location')) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
-                        | //swe:Text[not(ancestor::swe:elementType) and (contains(lower-case(@definition), 'gml') or contains(lower-case(@definition), 'location')) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
-                        | //swe:QuantityRange[not(ancestor::swe:elementType) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
-                        | //swe:TimeRange[not(ancestor::swe:elementType) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
-                        | //swe:CategoryRange[not(ancestor::swe:elementType) and (contains(lower-case(@definition), 'gml') or contains(lower-case(@definition), 'location')) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])]">
+        <rule context="//swe:Quantity[not(ancestor::sos:resultStructure) and not(ancestor::swe:elementType) and (contains(lower-case(@definition), 'gml') or contains(lower-case(@definition), 'location')) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
+                        | //swe:Time[not(ancestor::sos:resultStructure) and not(ancestor::swe:elementType) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
+                        | //swe:Category[not(ancestor::sos:resultStructure) and not(ancestor::swe:elementType) and (contains(lower-case(@definition), 'gml') or contains(lower-case(@definition), 'location')) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
+                        | //swe:Text[not(ancestor::sos:resultStructure) and not(ancestor::swe:elementType) and (contains(lower-case(@definition), 'gml') or contains(lower-case(@definition), 'location')) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
+                        | //swe:QuantityRange[not(ancestor::sos:resultStructure) and not(ancestor::swe:elementType) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
+                        | //swe:TimeRange[not(ancestor::sos:resultStructure) and not(ancestor::swe:elementType) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])] 
+                        | //swe:CategoryRange[not(ancestor::sos:resultStructure) and not(ancestor::swe:elementType) and (contains(lower-case(@definition), 'gml') or contains(lower-case(@definition), 'location')) and not(ancestor::swe:Vector[@referenceFrame]) and not(ancestor::swe:Matrix[@referenceFrame])]">
             <assert
                 test=" (@referenceFrame and @referenceFrame castable as xs:anyURI) or @referenceTime ">
                 The reference frame is specified on scalar spatial or temporal properties.
@@ -112,7 +115,7 @@
     
     <pattern>
         <title>Req 27 - Time reference frame defined</title>
-        <rule context=" //swe:Time[not(ancestor::swe:elementType)] ">
+        <rule context=" //swe:Time[not(ancestor::sos:resultStructure) and not(ancestor::swe:elementType)] ">
             <assert
                 test=" @referenceFrame or @referenceTime ">
                 The temporal reference frame is defined.
@@ -122,7 +125,7 @@
     
     <pattern>
         <title>Req 29 - Time local frame valid</title>
-        <rule context=" //swe:Time[not(ancestor::swe:elementType)] ">
+        <rule context=" //swe:Time[not(ancestor::sos:resultStructure) and not(ancestor::swe:elementType)] ">
             <report
                 test=" @referenceFrame = @localFrame ">
                 The local and reference frames of a Time component are different.
