@@ -30,8 +30,8 @@ Please reference the availability column in the previous table that marked as no
 * [Samples](https://github.com/opengeospatial/ets-swecommon20/tree/master/src/test/resources/examples) 
 * Reference implementations
   * SOS from GIS.FCU
-    * http://140.134.48.50:8080/52n-sos-webapp/service?service=SOS&version=2.0.0&request=GetObservation&observedProperty=http%3A%2F%2Fsweet.jpl.nasa.gov%2F2.0%2Fphys.owl%23Mass
-    * http://140.134.48.50:8080/52n-sos-webapp/service?service=SOS&version=2.0.0&request=GetObservation&procedure=http%3A%2F%2Fwww.example.org%2Fregister%2Fprocess%2FweatherStation3
+    * Sample 1 - http://140.134.48.50:8080/52n-sos-webapp/service?service=SOS&version=2.0.0&request=GetObservation&observedProperty=http%3A%2F%2Fsweet.jpl.nasa.gov%2F2.0%2Fphys.owl%23Mass
+    * Sample 2 = http://140.134.48.50:8080/52n-sos-webapp/service?service=SOS&version=2.0.0&request=GetObservation&procedure=http%3A%2F%2Fwww.example.org%2Fregister%2Fprocess%2FweatherStation3
   * SOS from 52North
     * http://sensorweb.demo.52north.org/52n-sos-webapp/service    
       * request=GetResultTemplate
