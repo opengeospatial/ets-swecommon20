@@ -26,7 +26,7 @@
       </suite>
       <revision>
         <name>${version}</name>
-        <status>Beta</status>
+        <status>Final</status>
         <sources>
           <source>swecommon20/${spec-version}/ctl</source>
         </sources>
