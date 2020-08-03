@@ -53,6 +53,7 @@
 		<dependency>
 			<groupId>org.opengis.cite.teamengine</groupId>
 			<artifactId>teamengine-spi</artifactId>
+			<version>5.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.opengis.cite</groupId>
