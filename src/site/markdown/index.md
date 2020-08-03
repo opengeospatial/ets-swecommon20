@@ -1,6 +1,6 @@
 # Overview
 This test suite is based on the following OGC specification:
-  * OGC® SWE Common Data Model Encoding Standard [OGC 10-025r1](http://portal.opengeospatial.org/files/?artifact_id=41157)
+  * OGC® SWE Common Data Model Encoding Standard [OGC 08-094r1](http://portal.opengeospatial.org/files/?artifact_id=41157)
   
 ## What is tested 
 Comformance Class Section | No. of Req | Content of Requirement | Available in testsuite | Notes
