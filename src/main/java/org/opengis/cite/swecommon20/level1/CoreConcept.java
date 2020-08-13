@@ -1,10 +1,8 @@
 package org.opengis.cite.swecommon20.level1;
 
-import java.io.IOException;
 import java.net.URL;
 
 import javax.xml.XMLConstants;
-import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.Source;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamSource;
