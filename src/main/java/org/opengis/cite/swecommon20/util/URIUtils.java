@@ -13,15 +13,12 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.opengis.cite.swecommon20.util.TestSuiteLogger;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import org.glassfish.jersey.client.ClientResponse;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
 
 /**
  * Provides a collection of utility methods for manipulating or resolving URI
@@ -92,9 +89,9 @@ public class URIUtils {
             return new File(uriRef);
         }
 
-        Client client 		= ClientBuilder.newClient();
-	WebTarget webTarget 	= client.target(uriRef);
-        ClientResponse rsp	= webTarget.request(MediaType.APPLICATION_XML).get(ClientResponse.class);
+        Client client = Client.create();
+        WebResource webRes = client.resource(uriRef);
+        ClientResponse rsp = webRes.get(ClientResponse.class);
 
         String suffix = null;
         if (rsp.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE).endsWith("xml")) {
@@ -102,7 +99,7 @@ public class URIUtils {
         }
         File destFile = File.createTempFile("entity-", suffix);
         if (rsp.hasEntity()) {
-            InputStream is  = rsp.getEntityStream();
+            InputStream is  = rsp.getEntityInputStream();
             OutputStream os = new FileOutputStream(destFile);
             byte[] buffer   = new byte[8 * 1024];
             int bytesRead;
@@ -148,14 +145,14 @@ public class URIUtils {
         if (uriRef.getScheme().equalsIgnoreCase("file")) {
             return new File(uriRef);
         }
-	
-	Client client 		= ClientBuilder.newClient();
-	WebTarget webTarget 	= client.target(uriRef);
-        ClientResponse rsp	= webTarget.request(MediaType.APPLICATION_XML).get(ClientResponse.class);
+
+        Client client = Client.create();
+        WebResource webRes = client.resource(uriRef);
+        ClientResponse rsp = webRes.get(ClientResponse.class);
 
         File destFile = File.createTempFile("entity-", ".xml");
         if (rsp.hasEntity()) {
-            InputStream is  = rsp.getEntityStream();
+            InputStream is  = rsp.getEntityInputStream();
             OutputStream os = new FileOutputStream(destFile);
             byte[] buffer   = new byte[8 * 1024];
             int bytesRead;
