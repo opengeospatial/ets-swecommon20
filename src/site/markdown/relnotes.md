@@ -1,5 +1,10 @@
 # SWECommon 2.0 Release Notes
 
+## 1.0.1 (2020-09-14)
+
+* [#15](https://github.com/opengeospatial/ets-swecommon20/issues/15) Unable to test documents retrieved from URL
+* [#16](https://github.com/opengeospatial/ets-swecommon20/issues/16) Test suite passes successfully against non SWECommon files
+
 ## 1.0
 
 * [#14](https://github.com/opengeospatial/ets-swecommon20/pull/14) Set status to final
