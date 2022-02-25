@@ -1,5 +1,13 @@
 # SWECommon 2.0 Release Notes
 
+## 1.1 (2022-02-25)
+
+* [#22](https://github.com/opengeospatial/ets-swecommon20/issues/22) Add template to get an XML/JSON response via rest endpoint
+* [#19](https://github.com/opengeospatial/ets-swecommon20/issues/19) Cleanup dependencies
+* [#26](https://github.com/opengeospatial/ets-swecommon20/pull/26) Bump xercesImpl from 2.11.0 to 2.12.2
+* [#20](https://github.com/opengeospatial/ets-swecommon20/pull/20) Bump junit from 4.12 to 4.13.1
+* [#24](https://github.com/opengeospatial/ets-swecommon20/pull/24) Set Docker TEAM Engine version to 5.4.1
+
 ## 1.0.1 (2020-09-14)
 
 * [#15](https://github.com/opengeospatial/ets-swecommon20/issues/15) Unable to test documents retrieved from URL
