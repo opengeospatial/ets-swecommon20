@@ -13,7 +13,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mockito.Matchers;
+import org.mockito.ArgumentMatchers;
 import org.testng.ISuite;
 import org.testng.xml.XmlSuite;
 import org.w3c.dom.Document;
@@ -53,17 +53,17 @@ public class VerifySuiteFixtureListener {
         iut.onStart(suite);
     }
 
-//    @Test
-//    public void processIUTParameter() throws URISyntaxException {
-//        URL url = this.getClass().getResource("/atom-feed.xml");
-//        Map<String, String> params = new HashMap<String, String>();
-//        params.put(TestRunArg.IUT.toString(), url.toURI().toString());
-//        when(xmlSuite.getParameters()).thenReturn(params);
-//        SuiteFixtureListener iut = new SuiteFixtureListener();
-//        iut.onStart(suite);
-//        verify(suite).setAttribute(
-//                Matchers.eq(SuiteAttribute.TEST_SUBJECT.getName()),
-//                Matchers.isA(Document.class));
-//    }
+    @Test
+    public void processIUTParameter() throws URISyntaxException {
+        URL url = this.getClass().getResource("/atom-feed.xml");
+        Map<String, String> params = new HashMap<String, String>();
+        params.put(TestRunArg.IUT.toString(), url.toURI().toString());
+        when(xmlSuite.getParameters()).thenReturn(params);
+        SuiteFixtureListener iut = new SuiteFixtureListener();
+        iut.onStart(suite);
+        verify(suite).setAttribute(
+                ArgumentMatchers.eq(SuiteAttribute.TEST_SUBJECT.getName()),
+                ArgumentMatchers.isA(Document.class));
+    }
 
 }
