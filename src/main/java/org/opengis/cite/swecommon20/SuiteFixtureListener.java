@@ -21,79 +21,74 @@ import org.testng.Reporter;
 import org.w3c.dom.Document;
 
 /**
- * A listener that performs various tasks before and after a test suite is run,
- * usually concerned with maintaining a shared test suite fixture. Since this
- * listener is loaded using the ServiceLoader mechanism, its methods will be
- * called before those of other suite listeners listed in the test suite
- * definition and before any annotated configuration methods.
+ * A listener that performs various tasks before and after a test suite is run, usually
+ * concerned with maintaining a shared test suite fixture. Since this listener is loaded
+ * using the ServiceLoader mechanism, its methods will be called before those of other
+ * suite listeners listed in the test suite definition and before any annotated
+ * configuration methods.
  *
- * Attributes set on an ISuite instance are not inherited by constituent test
- * group contexts (ITestContext). However, suite attributes are still accessible
- * from lower contexts.
+ * Attributes set on an ISuite instance are not inherited by constituent test group
+ * contexts (ITestContext). However, suite attributes are still accessible from lower
+ * contexts.
  *
  * @see org.testng.ISuite ISuite interface
  */
 public class SuiteFixtureListener implements ISuiteListener {
 
-    @Override
-    public void onStart(ISuite suite) {
-    	processIUTParameter(suite);
+	/** {@inheritDoc} */
+	@Override
+	public void onStart(ISuite suite) {
+		processIUTParameter(suite);
 		processXmlReference(suite);
 		processSchematronSchema(suite);
-    }
+	}
 
-    @Override
-    public void onFinish(ISuite suite) {
-    	Reporter.clear(); // clear output from previous test runs
+	/** {@inheritDoc} */
+	@Override
+	public void onFinish(ISuite suite) {
+		Reporter.clear(); // clear output from previous test runs
 		Reporter.log("Test suite parameters:");
 		Reporter.log(suite.getXmlSuite().getAllParameters().toString());
-    }
+	}
 
-    /**
-     * Processes test suite arguments and sets suite attributes accordingly. The
-     * entity referenced by the {@link TestRunArg#IUT iut} argument is parsed
-     * and the resulting Document is set as the value of the "testSubject"
-     * attribute.
-     * 
-     * @param suite
-     *            An ISuite object representing a TestNG test suite.
-     */
-    void processSuiteParameters(ISuite suite) {
-        Map<String, String> params = suite.getXmlSuite().getParameters();
-        TestSuiteLogger.log(Level.CONFIG,
-                "Suite parameters\n" + params.toString());
-        String iutParam = params.get(TestRunArg.IUT.toString());
-        if ((null == iutParam) || iutParam.isEmpty()) {
-            throw new IllegalArgumentException(
-                    "Required test run parameter not found: "
-                            + TestRunArg.IUT.toString());
-        }
-        URI iutRef = URI.create(iutParam.trim());
-        File entityFile = null;
-        try {
-            entityFile = URIUtils.dereferenceURI(iutRef);
-        } catch (IOException iox) {
-            throw new RuntimeException("Failed to dereference resource located at "
-                    + iutRef, iox);
-        }
-        Document iutDoc = null;
-        try {
-            iutDoc = URIUtils.parseURI(entityFile.toURI());
-        } catch (Exception x) {
-            throw new RuntimeException("Failed to parse resource retrieved from "
-                    + iutRef, x);
-        }
-        suite.setAttribute(SuiteAttribute.TEST_SUBJECT.getName(), iutDoc);
-        if (TestSuiteLogger.isLoggable(Level.FINE)) {
-            StringBuilder logMsg = new StringBuilder(
-                    "Parsed resource retrieved from ");
-            logMsg.append(iutRef).append("\n");
-            logMsg.append(XMLUtils.writeNodeToString(iutDoc));
-            TestSuiteLogger.log(Level.FINE, logMsg.toString());
-        }
-    }
-    
-    void processXmlReference(ISuite suite) {
+	/**
+	 * Processes test suite arguments and sets suite attributes accordingly. The entity
+	 * referenced by the {@link TestRunArg#IUT iut} argument is parsed and the resulting
+	 * Document is set as the value of the "testSubject" attribute.
+	 * @param suite An ISuite object representing a TestNG test suite.
+	 */
+	void processSuiteParameters(ISuite suite) {
+		Map<String, String> params = suite.getXmlSuite().getParameters();
+		TestSuiteLogger.log(Level.CONFIG, "Suite parameters\n" + params.toString());
+		String iutParam = params.get(TestRunArg.IUT.toString());
+		if ((null == iutParam) || iutParam.isEmpty()) {
+			throw new IllegalArgumentException("Required test run parameter not found: " + TestRunArg.IUT.toString());
+		}
+		URI iutRef = URI.create(iutParam.trim());
+		File entityFile = null;
+		try {
+			entityFile = URIUtils.dereferenceURI(iutRef);
+		}
+		catch (IOException iox) {
+			throw new RuntimeException("Failed to dereference resource located at " + iutRef, iox);
+		}
+		Document iutDoc = null;
+		try {
+			iutDoc = URIUtils.parseURI(entityFile.toURI());
+		}
+		catch (Exception x) {
+			throw new RuntimeException("Failed to parse resource retrieved from " + iutRef, x);
+		}
+		suite.setAttribute(SuiteAttribute.TEST_SUBJECT.getName(), iutDoc);
+		if (TestSuiteLogger.isLoggable(Level.FINE)) {
+			StringBuilder logMsg = new StringBuilder("Parsed resource retrieved from ");
+			logMsg.append(iutRef).append("\n");
+			logMsg.append(XMLUtils.writeNodeToString(iutDoc));
+			TestSuiteLogger.log(Level.FINE, logMsg.toString());
+		}
+	}
+
+	void processXmlReference(ISuite suite) {
 		Map<String, String> params = suite.getXmlSuite().getParameters();
 		TestSuiteLogger.log(Level.CONFIG, String.format("Suite parameters:\n %s", params));
 		Set<URI> schemaURIs = new HashSet<URI>();
@@ -118,24 +113,28 @@ public class SuiteFixtureListener implements ISuiteListener {
 			if (XMLUtils.isXMLSchema(xmlFile)) {
 				params.put(TestRunArg.XSD.toString(), xmlURI);
 				schemaURIs.add(URI.create(xmlURI));
-			} else {
+			}
+			else {
 				schemaURIs.addAll(ValidationUtils.extractSchemaReferences(new StreamSource(xmlFile), xmlURI));
 				suite.setAttribute(SuiteAttribute.XML.getName(), xmlFile);
 
 				Document iutDoc = null;
 				try {
-					//iutDoc = URIUtils.parseURI(xmlFile.toURI());
+					// iutDoc = URIUtils.parseURI(xmlFile.toURI());
 					iutDoc = URIUtils.parseURI(uriXml);
-				} catch (Exception x) {
+				}
+				catch (Exception x) {
 					throw new RuntimeException("Failed to parse resource retrieved from " + xmlURI, x);
 				}
 				suite.setAttribute(SuiteAttribute.TEST_SUBJECT.getName(), iutDoc);
 				TestSuiteLogger.log(Level.FINE, "Wrote XML document to " + xmlFile.getAbsolutePath());
 				suite.setAttribute(SuiteAttribute.TEST_SUBJECT_URI.getName(), URI.create(xmlURI));
 			}
-		} catch (IOException iox) {
+		}
+		catch (IOException iox) {
 			throw new RuntimeException("Failed to read resource obtained from " + xmlURI, iox);
-		} catch (XMLStreamException xse) {
+		}
+		catch (XMLStreamException xse) {
 			throw new RuntimeException("Failed to find schema reference in source: " + xmlFile.getAbsolutePath(), xse);
 		}
 		suite.setAttribute(SuiteAttribute.SCHEMA_LOC_SET.getName(), schemaURIs);
@@ -161,15 +160,15 @@ public class SuiteFixtureListener implements ISuiteListener {
 			File iutFile = URIUtils.resolveURIAsFile(URI.create(iutRef));
 			if (XMLUtils.isXMLSchema(iutFile)) {
 				params.put(TestRunArg.XSD.toString(), iutRef);
-			} else {
+			}
+			else {
 				params.put(TestRunArg.XML.toString(), iutRef);
 			}
-		} catch (Exception x) {
+		}
+		catch (Exception x) {
 			throw new RuntimeException("Failed to read resource from " + iutRef, x);
 		}
 		params.remove(TestRunArg.IUT.toString());
 	}
-
-
 
 }

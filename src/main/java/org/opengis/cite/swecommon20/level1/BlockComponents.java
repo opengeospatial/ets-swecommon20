@@ -7,18 +7,28 @@ import org.opengis.cite.swecommon20.ETSAssert;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 
-public class BlockComponents extends DataFixture{	
-	
-	@Test(groups = "BlockComponents", dependsOnGroups  = { "SimpleComponents", "SimpleEncodings" }, description="A.5 defines additional aggregate components for describing arrays of values that are designed to be encoded as efficient data blocks.")
+/**
+ * <p>
+ * BlockComponents class.
+ * </p>
+ *
+ */
+public class BlockComponents extends DataFixture {
+
+	/**
+	 * <p>
+	 * checkBlockComponentsSchematron.
+	 * </p>
+	 */
+	@Test(groups = "BlockComponents", dependsOnGroups = { "SimpleComponents", "SimpleEncodings" },
+			description = "A.5 defines additional aggregate components for describing arrays of values that are designed to be encoded as efficient data blocks.")
 	public void checkBlockComponentsSchematron() {
 		String hasResult = this.CheckXPath2("boolean(//swe:DataArray | //swe:Matrix | //swe:DataStream)");
 		if (hasResult.equals("false"))
-			throw new SkipException("No block components found.");		
-		
-		URL schRef = this.getClass().getResource(
-				"/org/opengis/cite/swecommon20/sch/A.5.BlockComponents.sch");
-		ETSAssert
-				.assertSchematronValid(schRef, new StreamSource(this.dataFile));
+			throw new SkipException("No block components found.");
+
+		URL schRef = this.getClass().getResource("/org/opengis/cite/swecommon20/sch/A.5.BlockComponents.sch");
+		ETSAssert.assertSchematronValid(schRef, new StreamSource(this.dataFile));
 	}
-	
+
 }
