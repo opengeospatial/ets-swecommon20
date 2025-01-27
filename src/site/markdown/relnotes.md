@@ -1,5 +1,11 @@
 # SWECommon 2.0 Release Notes
 
+## 1.2 (2025-01-27)
+
+Attention: Java 17 and Tomcat 10.1 are required.
+
+* [#28](https://github.com/opengeospatial/ets-swecommon20/issues/28) Migrate test suite to TEAM Engine 6 (Java 17)
+
 ## 1.1 (2022-02-25)
 
 * [#22](https://github.com/opengeospatial/ets-swecommon20/issues/22) Add template to get an XML/JSON response via rest endpoint
